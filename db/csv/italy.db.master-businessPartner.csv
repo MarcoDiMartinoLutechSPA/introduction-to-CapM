@@ -1,0 +1,4 @@
+NODE_KEY,BP_ROLE,EMAIL_ADDRESS,PHONE_NUMBER,FAX_NUMBER,WEB_ADDRESS,ADDRESS_GUID_NODE_KEY,BP_ID,COMPANY_NAME
+7554a050-c6ea-426d-ab17-1791fdc70add,1,sapvendor@gmail.com,7987699,7986989,www.abc.com,7554a050-c6ea-426d-ab17-1791fdc7dd,1000,sap
+4aad1e3b-a70a-4a26-9521-5990f3519b51 ,1,beckervendor@gmail.com,5436534,465354,www.abcd.com,4aad1e3b-a70a-4a26-9521-5990f3519,1001,becker
+b62a1a34-19d5-4b55-acd7-1dbebb6a4e7d,1,tatavendor@gmail.com,79879,45674,www.tata.com,b62a1a34-19d5-4b55-acd7-1dbebb6a,1002,tata

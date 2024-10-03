@@ -1,0 +1,10 @@
+NODE_KEY,PRODUCT_ID,TYPE_CODE,CATEGORY,SUPPLIER_GUID_NODE_KEY,TAX_TARIF_CODE,MEASURE_UNIT,WEIGHT_MEASURE,WEIGHT_UNIT,CURRENCY_CODE,PRICE,WIDTH,DEPTH,HEIGHT,DIM_UNIT,DESCRIPTION
+0206097d-018c-42b6-9ce2-f60aae57e994,HT1035,PR,Flat Screen,82,1,EA,4.2,KG,EUR,956,65,43,34,CM,Our top-of-the-line television for a truly transformative entertainment experience.
+6f6f5a27-948a-41df-ad38-8da0b215f2fa,HT1036,PR,Laser Printer,81,1,EA,4.3,KG,EUR,456,78,33,54,CM,Discover the difference of watching your favorite shows and movies on a screen that brings every detail to life.
+42fe5f9e-d2dd-4d16-9768-355c9f5755a3,HT1036,PR,Laser Printer,86,1,EA,4.4,KG,USD,765,20,56,23,CM,With advanced features such as built-in streaming and voice control capabilities this television offers convenience and entertainment in one sleek package.
+d4127948-6073-4b17-b6e0-1dba1bac078b,HT1038,PR,Flat Screen,83,1,EA,4.5,KG,USD,876,10,23,76,CM,Enhance your viewing experience with exceptional picture quality and superior sound.
+a94508c2-4209-4ba6-b3c6-a9036c9f4272,HT1039,PR,Television,54,1,EA,4.5,KG,JPY,765,43,64,21,CM,Introducing our latest television model  designed to provide an immersive viewing experience with stunning picture quality and vibrant colors.
+3e92c359-620a-4164-a2a5-b3f2ce721a64,HT1040,PR,Television,75,1,EA,4.5,KG,INR,6478,32,12,34,CM,This sleek and modern television features a high-definition display.
+e33e9ffc-5c25-4db6-9105-689e5b9b6635,HT1041,PR,Flat Screen,65,1,EA,4.5,KG,INR,2546,65,54,32,CM,With smart TV capabilities.
+1177588e-3835-47a0-a4e2-5c6819c0c563,HT1042,PR,Laser Printer,53,1,EA,4.5,KG,GBP,654,87,32,31,CM,Immerse yourself in your favorite content like never before with our high-definition television.
+2437b853-520c-4107-802a-dfc62e3749f2,HT1043,PR,Flat Screen,87,1,EA,4.5,KG,GBP,865,32,54,55,CM,Upgrade your home entertainment system with our cutting-edge television.

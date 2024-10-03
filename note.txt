@@ -1,0 +1,62 @@
+
+0) mkdir nomeFolderProgetto
+1) cds init = inizializza il progetto
+2) npm i sqlite = installa sqlite come dipendenza nel package.json
+
+3) crea una nuova connessione sqlite cliccando su SQL TOOLS -> add new connection -> SQLITE (Node) ->
+   inserisci connection name, es: nameConnection.db -> 
+   inserisci database file*, es: comando pwd da riga di comando per ricavarsi il percorso, poi path/nameConnection.db ->
+   test della connessione, se tutto OK -> salva la connessione
+   
+4) srv/1_myService.cds -> srv/1_myService.js
+5) cds run = avvia il server, Ctrl + c = ferma il server.
+6) https://www.npmjs.com/package/axios = documentazione API esterna di AXIOS
+7) free external API for testing = https://jsonplaceholder.typicode.com/
+8) npm i axios = installa axios come dipendenza nel package.json
+9) cds watch = avvia il progetto e riavvia il server dopo ogni modifica effettuata, senza bisogno ogni volta di riavviarlo
+10) db/2_externalApiDataModel.cds -> srv/2_externalApiService.cds -> srv/2_externalApiService.js
+11) db/3_dataModels.cds
+12) cds build
+13) cds deploy --to sqlite:nomeDB.db = distribuisce il database sqlite
+14) abbiamo refreshato il databse italy.db da SQL TOOLS ed abbiamo eseguito la connessione, osservando le tabelle create.
+
+15) abbiamo eseguito select * from italy_db_master_businessPartner; nel tab italy.db.session.sql ed abbiamo cliccato su: 
+   run on active connection per avviare la query di test (che non ci da alcun risultato perchè non esiste alcun record 
+   nella nostra tabella).
+
+16) abbiamo creato la cartella csv che conterrà i nostri file .csv, dentro la cartella db. i file csv vengono utilizzati a scopo
+    di test per riempire una tabella con dei record.
+
+17) cds compile nomeFile.cds -2 sql   assicuratevi di essere nella cartella di progetto giusta prima di effettuare 
+    il comando nel nostro caso la cartella giusta è db perchè è li che è presente il file 3_dataModel.cds
+    questo comando ci permette di visualizzare la struttura delle tabelle create sottoforma di SQL
+
+18) Quando l' entity di un file cds viene convertita in sql alle foreign key di una entity oltre al suo nome viene 
+    aggiunto di default il postfisso NODE_KEY quindi per non avere errori durante il deploy è bene che il medesimo campo 
+    in un file csv abbia anch' esso questo postfisso (aggiungere questo postfisso solo nel file csv e non nel file cds).
+
+19) creiamo il nostro file srv/service.cds per esporre il nostro dataModel sottoforma di servizio oData.
+
+20) creiamo il file srv/server.js per convertire l' oData V4 che abbiamo di default in oData V2 è fondamentale che il file si 
+    chiami esattamente server.js
+
+21) npm i @sap/cds-odata-v2-adapter-proxy = installa cds-odata-v2-adapter-proxy come dipendenza nel package.json
+
+22) Se malauguratamente capita che la porta 4004 si blocchi su un determinato processo, per sbloccare la situazione bisogna
+    prima individuare il  processo che occupa la porta con il comando: lsof -i :4004, uscirà un risultato simile:
+
+    COMMAND   PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+    node     12345  user   12u  IPv6 0x12345     0t0  TCP *:4004 (LISTEN)
+
+    arrestare il processo con il seguente comando: kill -9 12345
+
+    Questi sono comandi Linux per il sistema operativo su cui è presente il BAS, che è linux, se ci troviamo sul nostro PC locale a 
+    sviluppare ad esempio con VS Code bisogna utilizzare i comandi del sistema operativo del PC.
+
+23) creiamo il file srv/test-oData.http per effettuare i test sulle chiamate HTTP
+24) creiamo il file db/3_customAspect.cds per creare degli aspects personalizzati.
+25) creiamo il file db/4_CDSView.cds dove verranno trattate le viste CDS.
+26) creiamo il file srv/4_CDSViewService.cds
+27) creiamo il file srv/5_CQLService.js e srv/5_CQLService.cds per eseguire delle operazioni CRUD con il linguaggio CQL 
+28) creiamo il file srv/6_incrementLogic.js e srv/6_incrementLogic.cds dove viene fatto un esempio di action 
+29) creiamo il file srv/7_highSalary.js e srv/7_highSalary.cds dove viene fatto un esempio di function

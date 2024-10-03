@@ -1,0 +1,160 @@
+GET http://localhost:4004/odata/v4/catalogService/businessPartner HTTP/1.1
+
+### - Per separare due richieste di test HTTP è necessario inserire tre hastag
+
+GET http://localhost:4004/odata/v4/catalogService/address/9cd12b00-96a1-4e7e-88e7-5042e0f04986 HTTP/1.1
+
+### - CRUD operation - Create (POST), Read (GET), Update (PUT) e (PATCH), Delete (DELETE)
+
+//Bisogna lasciare una linea di spazio tra il Content-Type ed il Content altrimenti andrà in errore.
+
+//Un' operazione di POST (Create) serve per eseguire un' operazione di inserimento.
+
+//Nota: ogni volta che si effettua una POST ricordarsi che l' ID deve essere univoco.
+
+POST  http://localhost:4004/odata/v4/catalogService/businessPartner HTTP/1.1
+Content-Type: application/json 
+
+{
+    "NODE_KEY": "c781a50d-916f-4790-aba0-aedb7d9f164d",
+    "BP_ROLE": 8,
+    "EMAIL_ADDRESS": "dimartinomarco2000@gmail.com",
+    "PHONE_NUMBER": 4837589330,
+    "FAX_NUMBER": 389384,
+    "WEB_ADDRESS": "www.oracle.com",
+    "ADDRESS_GUID_NODE_KEY": "71292ec5-af7c-43ad-a898-e7f6d767c930",
+    "BP_ID": 1007,
+    "COMPANY_NAME": "Oracle" 
+}
+
+###
+
+//Un' operazione di PUT (Update) serve per eseguire un' operazione di aggiornamento.
+
+//Nota: ogni volta che si esegue un ' operazione di PUT bisogna inserire tutti i dati dell' entity anche quelli che non si vuole modificare altrimenti di default la PUT li farà diventare null.
+
+PUT  http://localhost:4004/odata/v4/catalogService/businessPartner/c781a50d-916f-4790-aba0-aedb7d9f164d HTTP/1.1
+Content-Type: application/json
+
+{
+    "NODE_KEY": "c781a50d-916f-4790-aba0-aedb7d9f164d",
+    "BP_ROLE": 8,
+    "EMAIL_ADDRESS": "dimartinomarco00@gmail.com",
+    "PHONE_NUMBER": 3917573524,
+    "FAX_NUMBER": 389384,
+    "WEB_ADDRESS": "www.oracle.com",
+    "ADDRESS_GUID_NODE_KEY": "71292ec5-af7c-43ad-a898-e7f6d767c930",
+    "BP_ID": 1007,
+    "COMPANY_NAME": "Oracle" 
+}
+
+###
+
+//Un' operazione di PATCH (Update) serve per eseguire un' operazione di aggiornamento.
+
+//Nota: la differenza tra PUT e PATCH e che PUT inserisce come null i valori dei campi non specificati nel contenuto JSON mentre PATCH modificherà solo i campi specificati senza modificare a null i campi non specificati nel contenuto JSON.
+
+PATCH http://localhost:4004/odata/v4/catalogService/businessPartner/6bebccfd-9db7-4943-a905-98479e7def0d HTTP/1.1
+Content-Type: application/json
+
+{
+    "EMAIL_ADDRESS": "microsoft@gmail.com",
+    "WEB_ADDRESS": "www.microsoft.com",
+    "COMPANY_NAME": "Microsoft" 
+}
+
+###
+
+//Un' operazione di DELETE (Delete) serve per eseguire un' operazione di cancellazione
+
+DELETE http://localhost:4004/odata/v4/catalogService/businessPartner/c781a50d-916f-4790-aba0-aedb7d9f164d HTTP/1.1
+
+###
+
+GET http://localhost:4004/odata/v4/catalogService/poItems?$expand=PARENT_KEY($expand=PARTNER_GUID) HTTP/1.1 
+
+### - test per la validazione delle e-mail.
+
+POST http://localhost:4004/odata/v4/catalogService/worker HTTP/1.1
+Content-Type: application/json
+
+{
+    "FIRST_NAME": "Bruce",
+    "LAST_NAME": "Wayne",
+    "GENDER": "M",
+    "PHONE_NUMBER": "391-757-3524",
+    "EMAIL": "bruce.wayne@wayne-enterprice.us",
+    "CURRENCY_CODE": "GBP",
+    "SALARY_AMMOUNT": 30000
+}
+
+### - Esempio di HTTP GET su una vista CDS
+
+GET http://localhost:4004/odata/v4/CDSViewsService/itemView HTTP/1.1
+
+//Non è possibile eseguire operazioni di POST con le viste CDS
+
+### - Esempio annotazione @readonly su HTTP POST
+
+POST http://localhost:4004/odata/v4/catalogService/product HTTP/1.1
+Content-Type: application/json
+
+{
+    "NODE_KEY": "0307098d-029c-53b7-9ce3-f70aae57e995",
+    "PRODUCT_ID": "HT1035",
+    "TYPE_CODE": "PR",
+    "CATEGORY": "Flat Screen",
+    "DESCRIPTION": "Our top-of-the-line television for a truly transformative entertainment experience.",
+    "SUPPLIER_GUID_NODE_KEY": "82",
+    "TAX_TARIF_CODE": 1,
+    "MEASURE_UNIT": "EA",
+    "WEIGHT_MEASURE": 4.2,
+    "WEIGHT_UNIT": "KG",
+    "CURRENCY_CODE": "USD",
+    "PRICE": 960,
+    "WIDTH": 50,
+    "DEPTH": 40,
+    "HEIGHT": 35,
+    "DIM_UNIT": "CM"
+}
+
+### - Test annotation Capabilities su entity purchaseOrder, non dovrebbe permettere la cancellazione del record
+
+DELETE http://localhost:4004/odata/v4/catalogService/purchaseOrder/2a76cb15-8347-44e8-b3e2-cf2b9db3249f HTTP/1.1
+
+###
+POST http://localhost:4004/odata/v4/cql/insertWorker HTTP/1.1
+Content-Type : application/json
+
+{
+    "FIRST_NAME": "Marco",
+    "LAST_NAME": "Di Martino",
+    "GENDER": "M",
+    "PHONE_NUMBER": "391-757-3524",
+    "EMAIL": "dimartinomarco5000@gmai.com",
+    "CURRENCY_CODE": "EUR",
+    "SALARY_AMOUNT": 3000
+}
+
+###
+PUT http://localhost:4004/odata/v4/cql/updateWorker/bb5e5980-7656-46ad-8802-2b0ad247a750 HTTP/1.1
+Content-Type : application/json
+
+{
+    "FIRST_NAME" : "Ciccio",
+    "LAST_NAME" : "Ciccia"
+}
+
+###
+DELETE http://localhost:4004/odata/v4/cql/deleteWorker/d753a5f0-f07f-4eb3-b22b-3b0344748e6e HTTP/1.1
+
+### - Action Testing
+POST http://localhost:4004/odata/v4/increment/hike HTTP/1.1
+Content-Type: application/json
+
+{
+    "ID" : "721375c4-e3e0-4394-83f8-bc1e3e5927ec"
+}
+
+### - Function Testing
+GET http://localhost:4004/odata/v4/high-salary/getHighestSalary() HTTP/1.1
