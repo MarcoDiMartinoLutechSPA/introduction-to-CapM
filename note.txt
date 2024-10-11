@@ -113,15 +113,18 @@ Second Part of Course
 40) npm install = ho aggiunto i node_modules
 41) npm install -g hana-cli = installiamo hana-cli per poter utilizzare comandi relativi ad esso.
 42) hana-cli createModule = serve per creare un modulo HDB
-43) seguire la procedura per bindare il database hana al progetto CAP presente all' interno delle risorse rilasciate,
+43) seguire la procedura per bindare il database hana al progetto CAP visualizzata all' interno del corso,
     dove al termine di questa procedura dovremmo ritrovarci un file. env all' interno della cartella db
 
 44) effuttua il deploy cliccando sull' icona del razzo (Deploy) posizionata a destra del nome del progetto sotto il dropdown SAP HANA PROJECTS
 
 45) quando esegui il deploy potrebbe venir generato un errore che richiede l' installazione della seguente dipendenza: 
-    npm i @sap/hana-client
+    npm i @sap/hana-client, installa la dipendenza nel file package.json della cartella db ed esegui il comando cds build per riflettere le 
+    modifiche nel SAP HANA PROJECTS
 
-46) clicca sull' icona centrale (Open HDI Container) situata sulla destra del nome del progetto sotto il dropdown SAP HANA PROJECTS per aprire il SAP HANA Database Explorer
+46) clicca sull' icona centrale (Open HDI Container) situata sulla destra del nome del progetto sotto il dropdown SAP HANA PROJECTS per aprire il SAP HANA 
+    Database Explorer
+
 47) npm start = avvia l' applicazione
 
 48) hana-cli copy2DefaultEnv = copia le informazione del file .env nel file generato default-env.json 
