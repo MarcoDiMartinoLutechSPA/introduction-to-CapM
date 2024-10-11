@@ -1,48 +1,50 @@
 
 0) mkdir nomeFolderProgetto
-1) cds init = inizializza il progetto
-2) npm i sqlite = installa sqlite come dipendenza nel package.json
+1) cds init = inizializza il progetto / 
+2) npm init = crea il file package.json per la gestione delle dipendenze.
+3) npm install =  installa le ultime versioni delle dipendenze dal sito npm.js.org che è il gestore di librerie javascript
+4) npm i sqlite = installa sqlite come dipendenza nel package.json
 
-3) crea una nuova connessione sqlite cliccando su SQL TOOLS -> add new connection -> SQLITE (Node) ->
+5) crea una nuova connessione sqlite cliccando su SQL TOOLS -> add new connection -> SQLITE (Node) ->
    inserisci connection name, es: nameConnection.db -> 
    inserisci database file*, es: comando pwd da riga di comando per ricavarsi il percorso, poi path/nameConnection.db ->
    test della connessione, se tutto OK -> salva la connessione
    
-4) srv/1_myService.cds -> srv/1_myService.js
-5) cds run = avvia il server, Ctrl + c = ferma il server.
-6) https://www.npmjs.com/package/axios = documentazione API esterna di AXIOS
-7) free external API for testing = https://jsonplaceholder.typicode.com/
-8) npm i axios = installa axios come dipendenza nel package.json
-9) cds watch = avvia il progetto e riavvia il server dopo ogni modifica effettuata, senza bisogno ogni volta di riavviarlo
-10) db/2_externalApiDataModel.cds -> srv/2_externalApiService.cds -> srv/2_externalApiService.js
-11) db/3_dataModels.cds
-12) cds build
-13) cds deploy --to sqlite:nomeDB.db = distribuisce il database sqlite
-14) abbiamo refreshato il databse italy.db da SQL TOOLS ed abbiamo eseguito la connessione, osservando le tabelle create.
+6) srv/1_myService.cds -> srv/1_myService.js
+7) cds run = avvia il server, Ctrl + c = ferma il server.
+8) https://www.npmjs.com/package/axios = documentazione API esterna di AXIOS
+9) free external API for testing = https://jsonplaceholder.typicode.com/
+10) npm i axios = installa axios come dipendenza nel package.json
+11) cds watch = avvia il progetto e riavvia il server dopo ogni modifica effettuata, senza bisogno ogni volta di riavviarlo
+12) db/2_externalApiDataModel.cds -> srv/2_externalApiService.cds -> srv/2_externalApiService.js
+13) db/3_dataModels.cds
+14) cds build
+15) cds deploy --to sqlite:nomeDB.db = distribuisce il database sqlite
+16) abbiamo refreshato il database italy.db da SQL TOOLS ed abbiamo eseguito la connessione, osservando le tabelle create.
 
-15) abbiamo eseguito select * from italy_db_master_businessPartner; nel tab italy.db.session.sql ed abbiamo cliccato su: 
+17) abbiamo eseguito select * from italy_db_master_businessPartner; nel tab italy.db.session.sql ed abbiamo cliccato su: 
    run on active connection per avviare la query di test (che non ci da alcun risultato perchè non esiste alcun record 
    nella nostra tabella).
 
-16) abbiamo creato la cartella csv che conterrà i nostri file .csv, dentro la cartella db. i file csv vengono utilizzati a scopo
+18) abbiamo creato la cartella csv che conterrà i nostri file .csv, dentro la cartella db. i file csv vengono utilizzati a scopo
     di test per riempire una tabella con dei record.
 
-17) cds compile nomeFile.cds -2 sql   assicuratevi di essere nella cartella di progetto giusta prima di effettuare 
+19) cds compile nomeFile.cds -2 sql   assicuratevi di essere nella cartella di progetto giusta prima di effettuare 
     il comando nel nostro caso la cartella giusta è db perchè è li che è presente il file 3_dataModel.cds
     questo comando ci permette di visualizzare la struttura delle tabelle create sottoforma di SQL
 
-18) Quando l' entity di un file cds viene convertita in sql alle foreign key di una entity oltre al suo nome viene 
+20) Quando l' entity di un file cds viene convertita in sql alle foreign key di una entity oltre al suo nome viene 
     aggiunto di default il postfisso NODE_KEY quindi per non avere errori durante il deploy è bene che il medesimo campo 
     in un file csv abbia anch' esso questo postfisso (aggiungere questo postfisso solo nel file csv e non nel file cds).
 
-19) creiamo il nostro file srv/service.cds per esporre il nostro dataModel sottoforma di servizio oData.
+21) creiamo il nostro file srv/service.cds per esporre il nostro dataModel sottoforma di servizio oData.
 
-20) creiamo il file srv/server.js per convertire l' oData V4 che abbiamo di default in oData V2 è fondamentale che il file si 
+22) creiamo il file srv/server.js per convertire l' oData V4 che abbiamo di default in oData V2 è fondamentale che il file si 
     chiami esattamente server.js
 
-21) npm i @sap/cds-odata-v2-adapter-proxy = installa cds-odata-v2-adapter-proxy come dipendenza nel package.json
+23) npm i @sap/cds-odata-v2-adapter-proxy = installa cds-odata-v2-adapter-proxy come dipendenza nel package.json
 
-22) Se malauguratamente capita che la porta 4004 si blocchi su un determinato processo, per sbloccare la situazione bisogna
+24) Se malauguratamente capita che la porta 4004 si blocchi su un determinato processo, per sbloccare la situazione bisogna
     prima individuare il  processo che occupa la porta con il comando: lsof -i :4004, uscirà un risultato simile:
 
     COMMAND   PID   USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
@@ -53,10 +55,81 @@
     Questi sono comandi Linux per il sistema operativo su cui è presente il BAS, che è linux, se ci troviamo sul nostro PC locale a 
     sviluppare ad esempio con VS Code bisogna utilizzare i comandi del sistema operativo del PC.
 
-23) creiamo il file srv/test-oData.http per effettuare i test sulle chiamate HTTP
-24) creiamo il file db/3_customAspect.cds per creare degli aspects personalizzati.
-25) creiamo il file db/4_CDSView.cds dove verranno trattate le viste CDS.
-26) creiamo il file srv/4_CDSViewService.cds
-27) creiamo il file srv/5_CQLService.js e srv/5_CQLService.cds per eseguire delle operazioni CRUD con il linguaggio CQL 
-28) creiamo il file srv/6_incrementLogic.js e srv/6_incrementLogic.cds dove viene fatto un esempio di action 
-29) creiamo il file srv/7_highSalary.js e srv/7_highSalary.cds dove viene fatto un esempio di function
+25) creiamo il file srv/test-oData.http per effettuare i test sulle chiamate HTTP
+26) creiamo il file db/3_customAspect.cds per creare degli aspects personalizzati.
+27) creiamo il file db/4_CDSView.cds dove verranno trattate le viste CDS.
+28) creiamo il file srv/4_CDSViewService.cds
+29) creiamo il file srv/5_CQLService.js e srv/5_CQLService.cds per eseguire delle operazioni CRUD con il linguaggio CQL 
+30) creiamo il file srv/6_incrementLogic.js e srv/6_incrementLogic.cds dove viene fatto un esempio di action 
+31) creiamo il file srv/7_highSalary.js e srv/7_highSalary.cds dove viene fatto un esempio di function
+
+Second Part of Course
+
+32) cds add mta = aggiunge il file mta.yml al progetto.
+
+33) il file package-lock.json blocca la versione delle dipendenza utilizzata quando esse sono state installate la prima volta.
+    il comando per bloccare le dipendenze nel file package-lock.json è: npm update --package-lock-only to freeze dependencies
+
+34) Per utilizzare come database Hana DB su Clound Foundry dobbiamo assicurarci che la sua istanza sia stata creata ed avviata.
+
+35) cds add hana = aggiungiamo la dipendenza hana al file package.json 
+36) cds -v = ci permette di visualizzare la versione di tutte le dipendenze installate
+37) cds --help = ci permette di visualizzare tutti i comandi relativi a cds
+
+38) nel file mta.yaml ho modificato la voce path da gen/db -> db del modulo con name: projectname-db-deployer 
+    (
+        NOTA: Se non si rimuove gen, cosa succederà? Verrà creata un'altra cartella gen e lì verranno distribuiti gli artifacts. 
+        Ma io voglio distribuire i miei artifacts nella cartella db. Il path è dato solo da db. Ho rimosso gen, 
+        quindi non verrà creata una cartella gen in più, ma nel caso di srv ci sarà una cartella gen in più.
+    )
+
+39) ho eliminato la sezione cds predefinita nel package.json per aggiungere la medesima modificata nel seguente modo:
+ 
+    "cds": {
+    "build": {
+      "tasks": [
+        {
+          "for": "hana",
+          "dest": "../db"
+        },
+        {
+          "for": "node-cf"
+        }
+      ]
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    },
+    "requires": {
+      "db": {
+        "kind": "hana"
+      },
+      "auth": {
+        "kind": "dummy-auth"
+      }
+    }
+  }
+
+40) npm install = ho aggiunto i node_modules
+41) npm install -g hana-cli = installiamo hana-cli per poter utilizzare comandi relativi ad esso.
+42) hana-cli createModule = serve per creare un modulo HDB
+43) seguire la procedura per bindare il database hana al progetto CAP presente all' interno delle risorse rilasciate,
+    dove al termine di questa procedura dovremmo ritrovarci un file. env all' interno della cartella db
+
+44) effuttua il deploy cliccando sull' icona del razzo (Deploy) posizionata a destra del nome del progetto sotto il dropdown SAP HANA PROJECTS
+
+45) quando esegui il deploy potrebbe venir generato un errore che richiede l' installazione della seguente dipendenza: 
+    npm i @sap/hana-client
+
+46) clicca sull' icona centrale (Open HDI Container) situata sulla destra del nome del progetto sotto il dropdown SAP HANA PROJECTS per aprire il SAP HANA Database Explorer
+47) npm start = avvia l' applicazione
+
+48) hana-cli copy2DefaultEnv = copia le informazione del file .env nel file generato default-env.json 
+    che contiene le informazioni del file .env in formato JSON è quindi più leggibile, prima di lanciare
+    questo comando bisogna essere nella cartella in cui è presente il file .env, dopodichè bisogna spostare
+    il file nella directory principale del progetto. 
+    quest' operazione è necessaria perchè altrimenti non si potrà accedere ai servizi cds per via di 
+    un errore di autenticazione non riuscita.
+
+49) eseguiamo il comando cds build per riflettere le modifiche effettuate nel nostro progetto CAP al progetto SAP HANA PROJECTS
+

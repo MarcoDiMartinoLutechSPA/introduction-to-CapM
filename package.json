@@ -7,6 +7,7 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^8",
+    "@sap/cds-hana": "^2.0.0",
     "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
     "axios": "^1.7.7",
     "express": "^4"
@@ -14,9 +15,34 @@
   "devDependencies": {
     "@cap-js/cds-types": "^0.6",
     "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
     "sqlite": "^5.1.1"
   },
   "scripts": {
     "start": "cds-serve"
+  },
+  "cds": {
+    "build": {
+      "tasks": [
+        {
+          "for": "hana",
+          "dest": "../db"
+        },
+        {
+          "for": "node-cf"
+        }
+      ]
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    },
+    "requires": {
+      "db": {
+        "kind": "hana"
+      },
+      "auth": {
+        "kind": "dummy-auth"
+      }
+    }
   }
 }

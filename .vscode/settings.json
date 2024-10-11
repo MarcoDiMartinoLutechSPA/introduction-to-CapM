@@ -15,5 +15,6 @@
       "name": "italy.db",
       "database": "${workspaceFolder:first-project-cap}/italy.db"
     }
-  ]
+  ],
+  "SAP HANA Project Explorer.bind.confirm automatic undeployment": false
 }
